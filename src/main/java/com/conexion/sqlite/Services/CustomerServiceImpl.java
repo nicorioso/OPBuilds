@@ -19,14 +19,18 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public Optional<Customer> getCustomerById(int id) {
+    public Optional<Customer> getCustomerById(Integer id) {
         Optional<Customer> customer = customerDBA.findById(id);
-
         if (customer.isPresent()) {
             return customer;
         }else {
             return Optional.empty();
         }
-
     }
+
+    @Override
+    public Customer createCustomer(Customer customer) {
+        return customerDBA.save(customer);
+    }
+
 }
