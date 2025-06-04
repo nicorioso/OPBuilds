@@ -49,13 +49,13 @@
 		<dependency>
 			<groupId>org.xerial</groupId>
 			<artifactId>sqlite-jdbc</artifactId>
-			<version>3.42.0.0</version> <!-- Verifica que sea la última versión -->
+			<version>3.42.0.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.4.4.Final</version> <!-- O usa la versión compatible con Spring Boot -->
+			<version>6.4.4.Final</version>
 		</dependency>
 	</dependencies>
 
