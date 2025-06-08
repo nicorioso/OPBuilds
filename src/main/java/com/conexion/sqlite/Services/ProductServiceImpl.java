@@ -51,4 +51,24 @@ public class ProductServiceImpl implements ProductService {
                 .orElseThrow(() -> new RuntimeException("No existe el producto con el id: " + id));
         productsDBA.delete(product);
     }
+
+    @Override
+    public Product patchProduct(int id, Product product) {
+        Product productExist = productsDBA.findById(id)
+                .orElseThrow(() -> new RuntimeException("No existe el producto con el id: " + id));
+        if (product.getName() != null) {
+            productExist.setName(product.getName());
+        }
+        if (product.getDescription() != null) {
+            productExist.setDescription(product.getDescription());
+        }
+        if (product.getCategory() != null) {
+            productExist.setCategory(product.getCategory());
+        }
+        if (product.getPrice() != null) {
+            productExist.setPrice(product.getPrice());
+        }
+        return productsDBA.save(productExist);
+    }
+
 }

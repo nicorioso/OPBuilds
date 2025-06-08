@@ -59,4 +59,14 @@ public class ProductController {
         }
     }
 
+    @PatchMapping
+    public ResponseEntity<?> patchProduct(@RequestBody Product product) {
+        try {
+            Product patch = productService.patchProduct(product.getId(), product);
+            return ResponseEntity.ok(patch);
+        }catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No existe el producto con el id " + product.getId());
+        }
+    }
+
 }
