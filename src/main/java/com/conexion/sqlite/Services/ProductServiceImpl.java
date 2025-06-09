@@ -1,6 +1,6 @@
 package com.conexion.sqlite.Services;
 
-import com.conexion.sqlite.Domain.Product;
+import com.conexion.sqlite.Domain.Products;
 import com.conexion.sqlite.Repository.ProductsDBA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,13 +14,13 @@ public class ProductServiceImpl implements ProductService {
     private ProductsDBA productsDBA;
 
     @Override
-    public List<Product> getProducts() {
+    public List<Products> getProducts() {
         return productsDBA.findAll();
     }
 
     @Override
-    public Optional<Product> getProduct(int id) {
-        Optional<Product> product = productsDBA.findById(id);
+    public Optional<Products> getProduct(int id) {
+        Optional<Products> product = productsDBA.findById(id);
         if (product.isPresent()) {
             return product;
         }
@@ -30,45 +30,45 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product addProduct(Product product) {
-        return productsDBA.save(product);
+    public Products addProduct(Products products) {
+        return productsDBA.save(products);
     }
 
     @Override
-    public Product updateProduct(int id, Product productNew) {
-        Product productExist = productsDBA.findById(id)
+    public Products updateProduct(int id, Products productsNew) {
+        Products productsExist = productsDBA.findById(id)
                 .orElseThrow(() -> new RuntimeException("No existe el producto con el id: " + id));
-        productExist.setName(productNew.getName());
-        productExist.setDescription(productNew.getDescription());
-        productExist.setCategory(productNew.getCategory());
-        productExist.setPrice(productNew.getPrice());
-        return productsDBA.save(productExist);
+        productsExist.setProductName(productsNew.getProductName());
+        productsExist.setDescription(productsNew.getDescription());
+        productsExist.setStock(productsNew.getStock());
+        productsExist.setPrice(productsNew.getPrice());
+        return productsDBA.save(productsExist);
     }
 
     @Override
     public void deleteProduct(int id) {
-        Product product = productsDBA.findById(id)
+        Products products = productsDBA.findById(id)
                 .orElseThrow(() -> new RuntimeException("No existe el producto con el id: " + id));
-        productsDBA.delete(product);
+        productsDBA.delete(products);
     }
 
     @Override
-    public Product patchProduct(int id, Product product) {
-        Product productExist = productsDBA.findById(id)
+    public Products patchProduct(int id, Products products) {
+        Products productsExist = productsDBA.findById(id)
                 .orElseThrow(() -> new RuntimeException("No existe el producto con el id: " + id));
-        if (product.getName() != null) {
-            productExist.setName(product.getName());
+        if (products.getProductName() != null) {
+            productsExist.setProductName(products.getProductName());
         }
-        if (product.getDescription() != null) {
-            productExist.setDescription(product.getDescription());
+        if (products.getDescription() != null) {
+            productsExist.setDescription(products.getDescription());
         }
-        if (product.getCategory() != null) {
-            productExist.setCategory(product.getCategory());
+        if (products.getStock() != null) {
+            productsExist.setStock(products.getStock());
         }
-        if (product.getPrice() != null) {
-            productExist.setPrice(product.getPrice());
+        if (products.getPrice() != null) {
+            productsExist.setPrice(products.getPrice());
         }
-        return productsDBA.save(productExist);
+        return productsDBA.save(productsExist);
     }
 
 }

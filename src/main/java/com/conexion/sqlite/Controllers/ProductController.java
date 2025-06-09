@@ -1,6 +1,6 @@
 package com.conexion.sqlite.Controllers;
 
-import com.conexion.sqlite.Domain.Product;
+import com.conexion.sqlite.Domain.Products;
 import com.conexion.sqlite.Services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,13 +19,13 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<Product>> getProducts() {
+    public ResponseEntity<List<Products>> getProducts() {
         return ResponseEntity.ok(productService.getProducts());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getProductById(@PathVariable int id) {
-        Optional<Product> productOpt = productService.getProduct(id);
+        Optional<Products> productOpt = productService.getProduct(id);
 
         return productOpt
                 .map(ResponseEntity::ok)
@@ -33,16 +33,17 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Product> addProduct(@RequestBody Product product) {
-        Product newProduct = productService.addProduct(product);
-        URI location = URI.create("/Products/" + newProduct.getId());
-        return ResponseEntity.created(location).body(newProduct);
+    public ResponseEntity<Products> addProduct(@RequestBody Products products) {
+        Products newProducts = productService.addProduct(products);
+        URI location = URI.create("/Products/" + newProducts.getId());
+        System.out.println("JSON recibido: " + products);
+        return ResponseEntity.created(location).body(newProducts);
     }
 
     @PutMapping
-    public ResponseEntity<?> updateProduct(@RequestBody Product product) {
+    public ResponseEntity<?> updateProduct(@RequestBody Products products) {
         try {
-            Product update = productService.updateProduct(product.getId(), product);
+            Products update = productService.updateProduct(products.getId(), products);
             return ResponseEntity.ok(update);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
@@ -60,12 +61,12 @@ public class ProductController {
     }
 
     @PatchMapping
-    public ResponseEntity<?> patchProduct(@RequestBody Product product) {
+    public ResponseEntity<?> patchProduct(@RequestBody Products products) {
         try {
-            Product patch = productService.patchProduct(product.getId(), product);
+            Products patch = productService.patchProduct(products.getId(), products);
             return ResponseEntity.ok(patch);
         }catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No existe el producto con el id " + product.getId());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 

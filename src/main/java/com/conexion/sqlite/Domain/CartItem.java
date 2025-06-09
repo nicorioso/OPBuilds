@@ -2,21 +2,21 @@ package com.conexion.sqlite.Domain;
 
 public class CartItem {
 
-    private Product product;
+    private Products products;
     private int cantidad;
 
-    public CartItem(Product product, int cantidad) {
-        this.product = product;
+    public CartItem(Products products, int cantidad) {
+        this.products = products;
         this.cantidad = cantidad;
     }
 
     // Getters y Setters
-    public Product getProduct() {
-        return product;
+    public Products getProduct() {
+        return products;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProduct(Products products) {
+        this.products = products;
     }
 
     public int getCantidad() {
@@ -28,7 +28,7 @@ public class CartItem {
     }
 
     public double getSubtotal() {
-        return product.getPrice() * cantidad;
+        return products.getPrice() * cantidad;
     }
 
 }

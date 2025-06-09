@@ -3,7 +3,7 @@ package com.conexion.sqlite.Domain;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "Customers")
 public class Customer {
 
     @Id
