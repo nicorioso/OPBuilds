@@ -1,34 +1,57 @@
 package com.conexion.sqlite.Domain;
 
 public class CartItem {
-
+    private Integer cartsId;
+    private Double total;
+    private Integer amount;
     private Products products;
-    private int cantidad;
+    private Customer customer;
 
-    public CartItem(Products products, int cantidad) {
+    public CartItem(Integer cartsId, Double total, Integer amount, Products products, Customer customer) {
+        this.cartsId = cartsId;
+        this.total = total;
+        this.amount = amount;
         this.products = products;
-        this.cantidad = cantidad;
+        this.customer = customer;
     }
 
-    // Getters y Setters
-    public Products getProduct() {
+    public Integer getCartsId() {
+        return cartsId;
+    }
+
+    public void setCartsId(Integer cartsId) {
+        this.cartsId = cartsId;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    public Double getAmount() {
+        return products.getPrice() * amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public Products getProducts() {
         return products;
     }
 
-    public void setProduct(Products products) {
+    public void setProducts(Products products) {
         this.products = products;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
-
-    public double getSubtotal() {
-        return products.getPrice() * cantidad;
-    }
-
 }

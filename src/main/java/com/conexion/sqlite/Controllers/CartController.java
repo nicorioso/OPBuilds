@@ -1,6 +1,7 @@
 package com.conexion.sqlite.Controllers;
 
 import com.conexion.sqlite.Domain.CartItem;
+import com.conexion.sqlite.Domain.Carts;
 import com.conexion.sqlite.Services.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,18 +22,18 @@ public class CartController {
         return ResponseEntity.ok(cartService.getCartItems());
     }
 
-    @PostMapping("/{id}")
-    public ResponseEntity<?> postCartService(@PathVariable int id) {
+    @PostMapping
+    public ResponseEntity<?> postCartService(@RequestBody Carts cart) {
         try {
-            cartService.postCartItem(id);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok().body(cartService.postCartItem(cart));
         }catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No existe el producto con el id " + id);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No existe el producto con el id " + cart.getCart_id());
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteCartService(@PathVariable int id) {
+    public ResponseEntity<?> deleteCartService(@PathVariable Integer id) {
         cartService.deleteCartItem(id);
         return ResponseEntity.ok().build();
     }
