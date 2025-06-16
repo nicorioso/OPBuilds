@@ -1,4 +1,4 @@
-package com.conexion.sqlite.Services;
+package com.conexion.sqlite.Services;More actions
 
 import com.conexion.sqlite.Domain.Customer;
 import com.conexion.sqlite.Repository.CustomerDBA;
@@ -33,4 +33,33 @@ public class CustomerServiceImpl implements CustomerService{
         return customerDBA.save(customer);
     }
 
+    @Override
+    public Customer updateCustomer(Integer id, Customer customer) {
+        return customerDBA.findById(id).map(existing -> {
+            existing.setName(customer.getName());
+            existing.setEmail(customer.getEmail());
+            existing.setPassword(customer.getPassword());
+            return customerDBA.save(existing);
+        }).orElseThrow(() -> new RuntimeException("Cliente no encontrado con id: " + id));
+    }
+
+    @Override
+    public Customer patchCustomer(Integer id, Customer customer) {
+        Customer customerExist = customerDBA.findById(id)
+                .orElseThrow(() -> new RuntimeException("No existe el producto con el id: " + id));
+        if (customer.getName() != null) {
+            customerExist.setName(customer.getName());
+        }
+        if (customer.getEmail() != null) {
+            customerExist.setEmail(customer.getEmail());
+        }
+        if (customer.getPassword() != null) {
+            customerExist.setPassword(customer.getPassword());
+        }
+        return customerDBA.save(customerExist);
+    }Add commentMore actions
+
+    public void deleteCustomer(Integer id) {
+        customerDBA.deleteById(id);
+    }
 }
