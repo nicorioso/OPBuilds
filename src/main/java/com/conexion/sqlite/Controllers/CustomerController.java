@@ -34,7 +34,7 @@ public class CustomerController {
     @PostMapping
     public ResponseEntity<?> postCustomer(@RequestBody Customer customer) {
         Customer nuevo = customerService.createCustomer(customer);
-        URI location = URI.create("/Customer/" + nuevo.getId());
+        URI location = URI.create("/Customer/" + nuevo.getCustomer_id());
         return ResponseEntity.created(location).body(nuevo);
     }
 

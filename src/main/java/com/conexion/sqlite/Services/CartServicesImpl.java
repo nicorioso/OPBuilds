@@ -20,13 +20,12 @@ public class CartServicesImpl implements CartService {
     public ProductsDBA productsDBA;
     @Autowired
     public CartsDBA cartsDBA;
-
-    private List<CartItem> cart = new ArrayList<>();
     @Autowired
     private CustomerDBA customerDBA;
 
     @Override
     public List<CartItem> getCartItems() {
+        List<CartItem> cart = new ArrayList<>();
         List<Carts> carts = cartsDBA.findAll();
         for (Carts c : carts) {
             Products product = productsDBA.findById(c.getProduct_id())
@@ -42,38 +41,36 @@ public class CartServicesImpl implements CartService {
 
     @Override
     public Carts postCartItem(Carts carts) {
-        Carts newCarts = new Carts();
         List<Carts> cartsItems = cartsDBA.findAll();
         for (Carts c : cartsItems) {
-            if (c.getProduct_id().equals(carts.getProduct_id())) {
-                Products products = productsDBA.findById(carts.getProduct_id())
+            if (c.getProduct_id().equals(carts.getProduct_id()) &&
+                    c.getCustomer_id().equals(carts.getCustomer_id())) {
+                Products product = productsDBA.findById(carts.getProduct_id())
                         .orElseThrow(() -> new RuntimeException("No existe el producto con el id: " + carts.getProduct_id()));
-                newCarts.setCart_price(c.getCart_price() + products.getPrice());
-                newCarts.setAmount(c.getAmount() + 1);
-                return cartsDBA.save(newCarts);
+                c.setAmount(c.getAmount() + carts.getAmount());
+                c.setCart_price(product.getPrice() * c.getAmount());
+                return cartsDBA.save(c);
             }
         }
-        newCarts.setCustomer_id(carts.getCustomer_id());
-        newCarts.setProduct_id(carts.getProduct_id());
-        newCarts.setAmount(carts.getAmount());
-        Products products = productsDBA.findById(carts.getProduct_id())
+        Products product = productsDBA.findById(carts.getProduct_id())
                 .orElseThrow(() -> new RuntimeException("No existe el producto con el id: " + carts.getProduct_id()));
-        newCarts.setCart_price(carts.getAmount()*products.getPrice());
-        return cartsDBA.save(newCarts);
+        carts.setCart_price(product.getPrice() * carts.getAmount());
+        return cartsDBA.save(carts);
     }
 
 
     @Override
-    public void deleteCartItem(Integer id) {
-        List<Carts> cartsItems = cartsDBA.findAll();
-        for (Carts c : cartsItems) {
-            if (c.getProduct_id().equals(id)) {
-                Carts newCarts = c;
-                newCarts.setAmount(c.getAmount() - 1);
-                cartsDBA.save(newCarts);
-                return;
-            }
+    public void deleteCartItem(Integer cartId) {
+        Carts cart = cartsDBA.findById(cartId)
+                .orElseThrow(() -> new RuntimeException("No existe el carrito con id: " + cartId));
+        if (cart.getAmount() > 1) {
+            cart.setAmount(cart.getAmount() - 1);
+            Products products = productsDBA.findById(cart.getProduct_id())
+                    .orElseThrow(() -> new RuntimeException("No existe el producto con el id: " + cart.getProduct_id()));
+            cart.setCart_price(cart.getCart_price() - products.getPrice());
+            cartsDBA.save(cart);
+        } else {
+            cartsDBA.deleteById(cartId);
         }
-        cartsDBA.deleteById(id);
     }
 }

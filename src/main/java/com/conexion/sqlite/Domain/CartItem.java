@@ -24,15 +24,15 @@ public class CartItem {
     }
 
     public Double getTotal() {
-        return total;
+        return products.getPrice() * amount;
     }
 
     public void setTotal(Double total) {
         this.total = total;
     }
 
-    public Double getAmount() {
-        return products.getPrice() * amount;
+    public Integer getAmount() {
+        return amount;
     }
 
     public void setAmount(Integer amount) {
