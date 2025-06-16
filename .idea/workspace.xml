@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6c03d953-5c6a-4aad-80c7-09150c182aa9" name="Changes" comment="Implementación con React">
+      <change afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/reportWebVitals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/setupTests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Controllers/CartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Controllers/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Domain/CartItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Domain/Carts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Domain/Products.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Repository/CartsDBA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Repository/ProductsDBA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Services/CartService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Services/CartServicesImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Services/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Services/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Controllers/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Services/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Services/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conexion/sqlite/Services/CustomerServiceImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="implementacion-react" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;caceres90&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/nicorioso/OPBuilds.git&quot;,
+    &quot;accountId&quot;: &quot;21420bc4-287d-4779-97a9-86e35dd75774&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2yaxsuVM3D68847cyPcMeRFzDRk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "last_opened_file_path": "C:/Users/alexe/OneDrive/Documentos/OPBuilds"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alexe\OneDrive\Documentos\OPBuilds\backend" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="pruebaSQLite" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="pruebaSQLite" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6c03d953-5c6a-4aad-80c7-09150c182aa9" name="Changes" comment="" />
+      <created>1750086696394</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1750086696394</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Implementación con React">
+      <option name="closed" value="true" />
+      <created>1750086932103</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750086932103</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Implementación con React">
+      <option name="closed" value="true" />
+      <created>1750087042219</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1750087042219</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implementación con React">
+      <option name="closed" value="true" />
+      <created>1750089489652</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1750089489652</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Implementación con React">
+      <option name="closed" value="true" />
+      <created>1750091654927</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1750091654927</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implementación con React" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementación con React" />
+  </component>
+</project>
